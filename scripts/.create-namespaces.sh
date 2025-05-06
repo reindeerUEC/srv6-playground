@@ -20,7 +20,7 @@ create_router1 () {
     run ip link set veth-h1-rt1 netns host1
     run ip link set veth-rt1-h1 netns router1
 
-    # host1 configuraiton
+    # host1 configuration
     run ip netns exec host1 ip link set lo up
     run ip netns exec host1 ip addr add fc00:a::2/64 dev veth-h1-rt1
     run ip netns exec host1 ip link set veth-h1-rt1 up
@@ -54,7 +54,7 @@ create_router2 () {
     run ip link set veth-node2-rt2 netns node2
     run ip link set veth-rt2-node2 netns router2
 
-    # node1 configuraiton
+    # node1 configuration
     run ip netns exec node1 ip link set lo up
     run ip netns exec node1 ip addr add fc00:b::10/64 dev veth-node1-rt2
     run ip netns exec node1 ip link set veth-node1-rt2 up
@@ -63,7 +63,7 @@ create_router2 () {
     run ip netns exec node1 ip -6 route add fc00:a::/64 via fc00:b::1
     run ip netns exec node1 ip -6 route add fc00:c::/64 via fc00:b::1
 
-    # node2 configuraiton
+    # node2 configuration
     run ip netns exec node2 ip link set lo up
     run ip netns exec node2 ip addr add fc00:b::20/64 dev veth-node2-rt2
     run ip netns exec node2 ip link set veth-node2-rt2 up
@@ -106,7 +106,7 @@ create_router3 () {
     run ip link set veth-h2-rt3 netns host2
     run ip link set veth-rt3-h2 netns router3
 
-    # host2 configuraiton
+    # host2 configuration
     run ip netns exec host2 ip link set lo up
     run ip netns exec host2 ip addr add fc00:c::2/64 dev veth-h2-rt3
     run ip netns exec host2 ip link set veth-h2-rt3 up
